@@ -1,4 +1,34 @@
 <script>
+	const functionUrl = 'https://work-ink-api.vercel.app/api/my-function';
+
+	// Function to invoke the serverless function
+	function invokeServerlessFunction() {
+		const argumentValue = 'myKey';
+		const requestBody = JSON.stringify({
+			argument: argumentValue
+		});
+
+		console.log(requestBody)
+
+		fetch(functionUrl, {
+			method: 'POST', // Assuming you're using POST method
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: requestBody
+		})
+		.then(response => response.json())
+		.then(data => {
+			Text.textContent = "Success" + data.message
+			console.log('Response from serverless function:', data);
+		})
+		.catch(error => {
+			console.error('Error invoking serverless function:', error);
+		});
+	}
+
+	// Attach a click event handler to the button
+	invokeServerlessFunction();
 	(() => {
 		function loadScript(url, callback) {
 			var script = document.createElement("script");
