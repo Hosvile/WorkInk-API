@@ -5,7 +5,7 @@
 		script.type = "text/javascript";
 		script.src = url;
 		script.onload = callback;
-		console.log(url, callback);
+		console.log(url, callback, document.head);
 		document.head.appendChild(script);
 	}
 	loadScript("https://cdn.work.ink/js/workink-sitescript.js", function() {
