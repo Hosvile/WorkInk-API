@@ -2,19 +2,11 @@
 	const functionUrl = 'https://work-ink-api.vercel.app/api/CreateLink.js'
 	
 	function invokeServerlessFunction() {
-		const argumentValue = 'myKey';
-		const requestBody = JSON.stringify({
-			argument: argumentValue
-		});
-		
-		console.log(requestBody)
-		
 		fetch(functionUrl, {
-			method: 'POST',
+			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: requestBody
 		})
 		.then(response => response.json())
 		.then(data => {
